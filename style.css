@@ -1,0 +1,460 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(img/Dessert.png);
+    font-family: fantasy;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    margin: unset;
+}
+
+html, body {
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+#canvas {
+    width: 720px;
+    height: 480px;
+    background-color: black;
+    transform: none;
+    transform-origin: top;
+}
+
+
+#canvasContainer {
+    position: relative;
+    width: 720px; 
+    height: 480px;
+    margin: auto;
+}
+
+
+#fullscreen {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 8fr 1fr;
+    place-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.start-screen {
+    width: auto;
+    height: auto;
+    min-width: 921.6px;
+    min-height: 518px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    background: #f0f0f0;
+    border: 3px solid #333;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    background-image: url(img/9_intro_outro_screens/start/startscreen_1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.controls-screen {
+    width: auto;
+    height: auto;
+    min-width: 921.6px;
+    min-height: 518px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: #c59142;
+    border: 3px solid #333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    gap: 20px;
+}
+
+.credits-screen {
+    width: auto;
+    height: auto;
+    min-width: 921.6px;
+    min-height: 518px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: #c59142;
+    border: 3px solid #333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.grid8 {
+    display: grid;
+    grid-template-rows: 8fr;
+    justify-items: center;
+}
+
+
+#fullscreen:fullscreen,
+#fullscreen:-webkit-full-screen,
+#fullscreen:-moz-full-screen,
+#fullscreen:-ms-fullscreen {
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+#fullscreen:fullscreen #canvas,
+#fullscreen:-webkit-full-screen #canvas,
+#fullscreen:-moz-full-screen #canvas,
+#fullscreen:-ms-fullscreen #canvas {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+
+#fullscreen:fullscreen #fullscreenBtn,
+#fullscreen:-webkit-full-screen #fullscreenBtn,
+#fullscreen:-moz-full-screen #fullscreenBtn,
+#fullscreen:-ms-fullscreen #fullscreenBtn {
+    display: none;
+}
+
+
+.start-screen button {
+    margin: 10px;
+    padding: 10px 20px;
+}
+
+.squarekey {
+    height: 70px;
+    width: 70px;
+}
+
+.spacekey {
+    height: 70px;
+    width: 200px;
+}
+
+.keys {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.keydescription {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.flex-item {
+    flex: 1;
+}
+
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.pollo {
+    grid-row: 1fr;
+    display: flex;
+    align-items: center;
+}
+
+
+.dekochicken {
+    height: 50px;
+    width: auto;
+}
+
+
+.headline {
+    font-size: 40px;
+    -webkit-text-stroke: 0.1px tomato;
+}
+
+#buttonContainer {
+    font-size: 25px;
+    color: white;
+    text-decoration:solid;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 80px;
+}
+
+.directionbuttons,
+.backbuttons {
+    background-color: #f2b807;
+    color: #8a360f;
+    border: 2px solid #c67620;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-family: 'Cinzel', serif;
+    text-shadow: 1px 1px 2px #ffffff88;
+    box-shadow: 3px 3px 5px #00000088;
+    transition: background-color 0.3s ease;
+    font-family: fantasy;
+}
+
+.directionbuttons:hover,
+.backbuttons {
+    background-color: #ffca2c;
+    cursor: pointer;
+}
+
+.dNone {
+    display: none !important;
+}
+
+.left-controls, .right-controls {
+    position: fixed;
+    bottom: 10px;
+    z-index: 10;
+}
+
+.left-controls {
+    left: 10px;
+}
+
+.right-controls {
+    right: 10px;
+}
+
+.left-controls, .right-controls {
+    display: flex;
+}
+
+.control-button {
+    height: 55px;
+    width: 55px;
+    display: none;
+}
+
+
+/* --------------------------------- Responsive Design ------------------------------ */
+
+/* Extra kleine Geräte (Telefone, weniger als 600px) */
+@media only screen and (max-width: 599px) {
+    .rotate-device-container {
+        display: none;
+    }
+    
+    .canvasContainer {
+        width: 100%;
+        height: auto;
+    }
+    
+    #canvas {
+        width: 100%;
+        height: auto;
+    }
+
+    .pollo {
+        display: none;
+    }
+
+    .grid1 {
+        display: none;
+    }
+
+    .start-screen,
+    .controls-screen,
+    .credits-screen {
+        background-image: url(img/9_intro_outro_screens/start/startscreen_1.png);
+        width: auto;
+        height: 100vh; 
+        background-size: contain;
+        background-position: center center;
+    }
+
+    .control-button {
+        display: flex;
+    }
+  }
+
+  @supports (touch-action: manipulation) {
+    body {
+        touch-action: manipulation;
+    }
+}
+
+
+  /* Breite kleiner als 500px */
+@media only screen and (max-width: 500px) {
+    .rotate-device-container {
+        width: 100%;   
+        height: 100%;  
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;  
+        left: 0; 
+        z-index: 2001;
+        background-color: rgba(0, 0, 0, 1);
+      }
+
+      .rotate-device {
+        max-width: 100%;  
+        max-height: 100%; 
+        object-fit: contain;
+    }
+}
+  
+  /* Kleine Geräte (Portrait Tablets und große Telefone, 600px bis 767px) */
+  @media only screen and (min-width: 600px) {
+    .pollo {
+        display: none;
+    }
+
+    .rotate-device-container {
+        display: none;
+    }
+    .start-screen,
+    .controls-screen,
+    .credits-screen {
+        min-height: unset;
+        min-width: unset;
+        width: 100vw;
+        height: 100%;
+    }
+    #canvas {
+        max-width: 767px;
+        max-height: none;
+        height: 100vh;
+        width: auto;
+    }
+    .control-button {
+        display: flex;
+    }
+
+    .gird1 {
+        position: absolute;
+        bottom: 2px;
+    }
+  }
+  
+  /* Mittlere Geräte (Landscape Tablets, 768px bis 991px) */
+  @media only screen and (min-width: 768px) {
+    .pollo {
+        display: none;
+    }
+    #canvas {
+        max-width: 991px;
+        max-height: 400px;
+        width: auto;
+
+    }
+
+    .start-screen,
+    .controls-screen,
+    .credits-screen {
+        background-image: url(img/9_intro_outro_screens/start/startscreen_1.png);
+        min-height: unset;
+        min-width: unset;
+        width: 100vw;
+        height: 100vh;
+        background-position: 0.1px;
+        object-fit: contain;
+        z-index: 101;
+    }
+  }
+  
+  /* Große Geräte (Laptops/Desktops, 992px bis 1199px) */
+  @media only screen and (min-width: 992px) {
+    .pollo {
+        display: flex;
+    }
+  }
+  
+  /* Extra große Geräte (große Laptops und Desktops, 1200px und darüber) */
+  @media only screen and (min-width: 1200px) {
+    .pollo {
+        display: flex;
+    }
+    .control-button {
+        display: none;
+    }
+
+    .start-screen {
+        width: auto;
+        height: auto;
+        min-width: 921.6px;
+        min-height: 518px;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        background: #f0f0f0;
+        border: 3px solid #333;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+        background-image: url(img/9_intro_outro_screens/start/startscreen_1.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    
+    .controls-screen {
+        width: auto;
+        height: auto;
+        min-width: 921.6px;
+        min-height: 518px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background: #c59142;
+        border: 3px solid #333;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        gap: 20px;
+    }
+    
+    .credits-screen {
+        width: auto;
+        height: auto;
+        min-width: 921.6px;
+        min-height: 518px;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background: #c59142;
+        border: 3px solid #333;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+    }
+  }  

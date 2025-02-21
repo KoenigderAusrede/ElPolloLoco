@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="style.css">
+    <title>El pollo loco</title>
+    <script src="models/Soundmanager.class.js"></script>
+    <script src="js/screenhandling.js"></script>
+    <script src="models/drawableObject.class.js"></script>
+    <script src="models/movableObject.class.js"></script>
+    <script src="models/keyboard.class.js"></script>
+    <script src="models/touchController.class.js" defer></script>
+    <script src="models/backgroundObject.class.js"></script>
+    <script src="models/character.class.js"></script>
+    <script src="models/chicken.class.js"></script>
+    <script src="models/clouds.class.js"></script>
+    <script src="models/level.class.js"></script>
+    <script src="models/finalboss.class.js"></script>
+    <script src="models/throwableObject.class.js"></script>
+    <script src="models/collectableObjects.class.js"></script>
+    <script src="models/status-bar.class.js"></script>
+    <script src="models/GameInfo.class.js"></script>
+    <script src="models/explosion.class.js"></script>
+    <script src="models/LevelTransition.class.js"></script>
+    <script src="models/GameOver.class.js"></script>
+    <script src="models/world.class.js"></script>
+    <script src="models/Collision.class.js"></script>
+    <script src="models/Drawer.class.js"></script>
+    <script src="js/game.js" defer></script>
+    <link rel="shortcut icon" href="img/favicon-32x32.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon-32x32.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="start-screen" class="start-screen">
+        <button id="start-game-button">Start</button>
+        <button id="controls-button">How To</button>
+        <button id="credits-button">Credits</button>
+    </div>
+    <div id="controls-screen" class="controls-screen" style="display: none">
+        <button class="back-button">
+            <p>Back</p>
+        </button>
+        <div class="keys">
+            <img src="png/arrowleft.png" alt="" class="squarekey flex-item">
+            <img src="png/arrowright.png" alt="" class="squarekey flex-item">
+            <img src="png/Spacekey.png" alt="" class="spacekey flex-item">
+            <img src="png/Dkey.png" alt="" class="squarekey flex-item">
+        </div>
+        <div class="keydescription">
+            <p class="flex-item">Move Left</p>
+            <p class="flex-item">Move Right</p>
+            <p class="flex-item">Jump</p>
+            <p class="flex-item">Throw Bottle</p>
+        </div>
+        <div class="howto">
+            <p>Levels 1 + 2: Collect all available coins to complete the level</p>
+            <p>Level 3: Defeat the final Boss to win</p>
+        </div>
+    </div>
+    <div id="credits-screen" class="credits-screen" style="display: none">
+        <button class="back-button">
+            <p>Back</p>
+        </button>
+        <div class="credits">
+            <p>"El Pollo Loco" is a 2D left to right jump and ran game</p>
+            <p>Graphics by Developer Akademie</p>
+            <p>Aditional graphics generateted by AI</p>
+            <p>Audio by freesounds.org</p>
+            <p>HTML, JS and CSS by Felix Blaser</p>
+        </div>
+    </div>
+    <div id="fullscreen" class="fullscreen">
+        <div class="pollo" id="pollo">
+            <img src="img/3_enemies_chicken/chicken_normal/1_walk/2_w.png" class="dekochicken"
+                style="transform: scaleX(-1);" alt="">
+            <h1 class="headline">El pollo loco</h1>
+            <img src="img/3_enemies_chicken/chicken_normal/1_walk/2_w.png" class="dekochicken" alt="">
+        </div>
+        <div class="grid8" id="canvasContainer">
+            <canvas id="canvas" width="720px" height="480px"></canvas>
+        </div>
+        <div class="grid1 dNone" id="buttonContainer">
+            <div>
+                <p>Movement: ⬅︎ ➡︎</p>
+                <p>Attack: D</p>
+                <p>Jump: Space</p>
+            </div>
+            <div>
+            <button class="directionbuttons" id="fullscreenBtn">Vollbild</button>
+            <button class="directionbuttons" id="mute-button">Mute</button>
+            </div>
+        </div>
+    </div>
+<div class="rotate-device-container">
+    <img class="rotate-device" src="img/rotateDevice.png">
+</div>
+</body>
+</html

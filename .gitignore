@@ -1,0 +1,27 @@
+# macOS-Systemdateien
+.DS_Store
+.Trash/
+
+# Node.js- und Editor-Ordner
+node_modules/
+.vscode/
+*.log
+
+# Versteckte Dateien & temporäre Verzeichnisse
+*.icloud
+.idea/
+.cache/
+.config/
+# macOS & System-Dateien
+.DS_Store
+.vscode/
+
+# Node.js, Build & Logs
+node_modules/
+dist/
+.angular/
+
+# Persönliche Dateien (optional)
+*.log
+*.icloud
+
